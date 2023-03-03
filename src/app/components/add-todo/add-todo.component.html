@@ -1,0 +1,10 @@
+<div>
+    <label for="title">New todo</label>
+    <input
+      id="title"
+      [value]="title"
+      (keyup)="onTitleChange($event)"
+      (keydown.enter)="onCreateTodo()"
+    />
+    <button (click)="onCreateTodo()" [disabled]="title.length < 1">Create</button>
+</div>
