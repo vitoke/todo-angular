@@ -1,0 +1,7 @@
+:host {
+  display: contents;
+}
+
+.todo-list {
+  min-width: 60%;
+}

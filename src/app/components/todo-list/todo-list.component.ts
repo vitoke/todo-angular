@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { tap } from 'rxjs';
+
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { TodoService } from 'src/app/services/todo.service';
   styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent {
-  private todoService = inject(TodoService);
+  private readonly todoService = inject(TodoService);
 
-  todos$ = this.todoService.todos$.pipe(tap(console.log));
+  readonly todos$ = this.todoService.todos$;
 }

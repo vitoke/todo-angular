@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+
 import { NewTodo } from 'src/app/model/todo';
 import { TodoService } from 'src/app/services/todo.service';
 
@@ -8,9 +9,9 @@ import { TodoService } from 'src/app/services/todo.service';
   styleUrls: ['./add-todo.component.css'],
 })
 export class AddTodoComponent {
-  title = '';
+  private readonly todoService = inject(TodoService);
 
-  private todoService = inject(TodoService);
+  title = '';
 
   onTitleChange(event: Event) {
     if (!event.target) return;
@@ -20,6 +21,10 @@ export class AddTodoComponent {
   }
 
   onCreateTodo() {
+    if (!this.title) {
+      return;
+    }
+
     const newTodo: NewTodo = {
       title: this.title,
       done: false,

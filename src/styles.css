@@ -1,1 +1,112 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --blue-base: 190deg;
+    --blue-base-sat: 50%;
+  
+    --blue-20: hsl(var(--blue-base), var(--blue-base-sat), 10%);
+    --blue-40: hsl(var(--blue-base), var(--blue-base-sat), 20%);
+    --blue-60: hsl(var(--blue-base), var(--blue-base-sat), 30%);
+    --blue-80: hsl(var(--blue-base), var(--blue-base-sat), 40%);
+    --blue-100: hsl(var(--blue-base), var(--blue-base-sat), 50%);
+  
+    --red-base: 0deg;
+    --red-base-sat: 100%;
+  
+    --red-20: hsl(var(--red-base), var(--red-base-sat), 10%);
+    --red-40: hsl(var(--red-base), var(--red-base-sat), 20%);
+    --red-60: hsl(var(--red-base), var(--red-base-sat), 30%);
+    --red-80: hsl(var(--red-base), var(--red-base-sat), 40%);
+    --red-100: hsl(var(--red-base), var(--red-base-sat), 50%);
+  
+    --green-base: 150deg;
+    --green-base-sat: 60%;
+  
+    --green-20: hsl(var(--green-base), var(--green-base-sat), 10%);
+    --green-40: hsl(var(--green-base), var(--green-base-sat), 20%);
+    --green-60: hsl(var(--green-base), var(--green-base-sat), 30%);
+    --green-80: hsl(var(--green-base), var(--green-base-sat), 40%);
+    --green-100: hsl(var(--green-base), var(--green-base-sat), 50%);
+  
+    --grey-base: 0deg;
+    --grey-base-sat: 0%;
+  
+    --grey-20: hsl(var(--grey-base), var(--grey-base-sat), 10%);
+    --grey-40: hsl(var(--grey-base), var(--grey-base-sat), 20%);
+    --grey-60: hsl(var(--grey-base), var(--grey-base-sat), 30%);
+    --grey-80: hsl(var(--grey-base), var(--grey-base-sat), 40%);
+    --grey-100: hsl(var(--grey-base), var(--grey-base-sat), 50%);
+    --grey-120: hsl(var(--grey-base), var(--grey-base-sat), 60%);
+    --grey-140: hsl(var(--grey-base), var(--grey-base-sat), 70%);
+    --grey-160: hsl(var(--grey-base), var(--grey-base-sat), 80%);
+    --grey-180: hsl(var(--grey-base), var(--grey-base-sat), 90%);
+  
+    --body-background: var(--grey-40);
+  
+    --button-color: var(--grey-40);
+    --button-background: var(--blue-100);
+    --button-border: var(--grey-60);
+    --button-box-shadow: var(--grey-40);
+  
+    --button-disabled-color: var(--grey-80);
+    --button-disabled-background: var(--grey-120);
+  
+    --button-active-background: var(--blue-80);
+  
+    --list-item-background: var(--green-80);
+  
+    --text-color: var(--grey-20);
+  
+    --text-disabled: var(--grey-80);
+  
+    --input-background: var(--blue-80);
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: var(--body-background);
+  
+    font-family: system-ui;
+  
+    font-size: 1.2rem;
+  
+    color: var(--text-color);
+  }
+  
+  button {
+    color: var(--button-color);
+    background-color: var(--button-background);
+    border-radius: 1rem;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid var(--button-border);
+    margin: 0 0.25rem;
+    font-size: 1.2rem;
+    transition: 0.2s all;
+    box-shadow: 2px 2px 5px var(--button-box-shadow);
+  }
+  
+  button:disabled {
+    color: var(--button-disabled-color);
+    background-color: var(--button-disabled-background);
+    box-shadow: none;
+  }
+  
+  button:hover:not(:disabled) {
+    transform: scale(1.1);
+  }
+  
+  button:active:not(:disabled) {
+    transition: 0.05s all;
+    background-color: var(--button-active-background);
+  }
+  
+  input {
+    padding: 0.4rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    background-color: var(--input-background);
+  }
+  

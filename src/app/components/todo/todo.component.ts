@@ -1,4 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
+
 import { Todo } from 'src/app/model/todo';
 import { TodoService } from 'src/app/services/todo.service';
 
@@ -8,11 +9,16 @@ import { TodoService } from 'src/app/services/todo.service';
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent {
-  private todoService = inject(TodoService);
+  private readonly todoService = inject(TodoService);
 
   @Input() todo!: Todo;
 
-  onDeleteTodo() {
+  onDeleteTodo(event: Event) {
+    event.preventDefault();
     this.todoService.deleteTodo(this.todo.id);
+  }
+
+  onToggleTodo() {
+    this.todoService.updateTodo({ ...this.todo, done: !this.todo.done });
   }
 }
