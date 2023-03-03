@@ -5,10 +5,10 @@ import { TodoService } from 'src/app/services/todo.service';
 @Component({
   selector: 'app-add-todo',
   templateUrl: './add-todo.component.html',
-  styleUrls: ['./add-todo.component.css']
+  styleUrls: ['./add-todo.component.css'],
 })
 export class AddTodoComponent {
-  title = ''
+  title = '';
 
   private todoService = inject(TodoService);
 
@@ -22,9 +22,11 @@ export class AddTodoComponent {
   onCreateTodo() {
     const newTodo: NewTodo = {
       title: this.title,
-      done: false
+      done: false,
     };
 
-    this.todoService.addTodo(newTodo)
+    this.todoService.addTodo(newTodo);
+
+    this.title = '';
   }
 }
