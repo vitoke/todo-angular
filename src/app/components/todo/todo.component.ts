@@ -14,7 +14,7 @@ export class TodoComponent {
   @Input() todo!: Todo;
 
   onDeleteTodo(event: Event) {
-    event.preventDefault();
+    event.stopPropagation();
     this.todoService.deleteTodo(this.todo.id);
   }
 

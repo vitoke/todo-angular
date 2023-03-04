@@ -1,9 +1,5 @@
-<div class="todo-container">
-  <div
-    class="todo"
-    [ngClass]="{ 'todo-done': todo.done }"
-    (click)="onToggleTodo()"
-  >
+<div class="todo-container" (click)="onToggleTodo()">
+  <div class="todo" [ngClass]="{ 'todo-done': todo.done }">
     {{ todo.title }}
   </div>
   <button (click)="onDeleteTodo($event)">X</button>

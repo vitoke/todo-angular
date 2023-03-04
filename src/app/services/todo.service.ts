@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { merge, of, Subject, switchMap, tap } from 'rxjs';
+import { merge, mergeMap, of, Subject, switchMap, tap } from 'rxjs';
 import { TODO_BACKEND_URL } from '../config';
 
 import { Id, NewTodo, Todo } from '../model/todo';
@@ -19,7 +19,7 @@ export class TodoService {
 
   private readonly addTodo$ = this.addTodoSubject.pipe(
     tap((v) => console.log('add', v)),
-    switchMap((newTodo) =>
+    mergeMap((newTodo) =>
       this.http.post<Todo>(TODO_BACKEND_URL, newTodo, {
         headers: HEADERS,
       })
@@ -28,12 +28,12 @@ export class TodoService {
 
   private readonly deleteTodo$ = this.deleteTodoSubject.pipe(
     tap((v) => console.log('delete', v)),
-    switchMap((todoId) => this.http.delete(`${TODO_BACKEND_URL}/${todoId}`))
+    mergeMap((todoId) => this.http.delete(`${TODO_BACKEND_URL}/${todoId}`))
   );
 
   private readonly updateTodo$ = this.updateTodoSubject.pipe(
     tap((v) => console.log('update', v)),
-    switchMap((todo) =>
+    mergeMap((todo) =>
       this.http.patch(`${TODO_BACKEND_URL}/${todo.id}`, todo, {
         headers: HEADERS,
       })
