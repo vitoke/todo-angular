@@ -13,13 +13,6 @@ export class AddTodoComponent {
 
   title = '';
 
-  onTitleChange(event: Event) {
-    if (!event.target) return;
-    const target = event.target as HTMLInputElement;
-
-    this.title = target.value;
-  }
-
   onCreateTodo() {
     if (!this.title) {
       return;
@@ -30,7 +23,7 @@ export class AddTodoComponent {
       done: false,
     };
 
-    this.todoService.addTodo(newTodo);
+    this.todoService.addTodo$(newTodo).subscribe();
 
     this.title = '';
   }

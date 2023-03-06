@@ -15,6 +15,7 @@
   height: 3.5rem;
 
   cursor: pointer;
+  user-select: none;
 }
 
 .todo {

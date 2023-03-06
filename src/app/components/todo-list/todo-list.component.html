@@ -1,5 +1,5 @@
-<div *ngIf="todos$ | async as todos" class="todo-list">
-  <div *ngFor="let todo of todos">
+<div class="todo-list">
+  <div *ngFor="let todo of todos$ | async">
     <app-todo [todo]="todo"></app-todo>
   </div>
 </div>

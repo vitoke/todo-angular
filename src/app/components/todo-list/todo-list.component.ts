@@ -10,5 +10,7 @@ import { TodoService } from 'src/app/services/todo.service';
 export class TodoListComponent {
   private readonly todoService = inject(TodoService);
 
+  constructor() {}
+
   readonly todos$ = this.todoService.todos$;
 }

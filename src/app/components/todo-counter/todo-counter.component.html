@@ -1,1 +1,5 @@
-<p>todo-counter works!</p>
+<div *ngIf="{ amount: amountTodo$ | async } as state">
+  <div *ngIf="state.amount === 0">Nothing to do!</div>
+  <div *ngIf="state.amount === 1">One item to do.</div>
+  <div *ngIf="(state.amount ?? 0) > 1">{{ state.amount }} items to do.</div>
+</div>

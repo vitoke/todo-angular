@@ -15,10 +15,12 @@ export class TodoComponent {
 
   onDeleteTodo(event: Event) {
     event.stopPropagation();
-    this.todoService.deleteTodo(this.todo.id);
+    this.todoService.deleteTodo$(this.todo.id).subscribe();
   }
 
   onToggleTodo() {
-    this.todoService.updateTodo({ ...this.todo, done: !this.todo.done });
+    this.todoService
+      .updateTodo$({ ...this.todo, done: !this.todo.done })
+      .subscribe();
   }
 }

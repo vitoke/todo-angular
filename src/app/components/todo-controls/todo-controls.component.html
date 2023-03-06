@@ -1,1 +1,15 @@
-<p>todo-controls works!</p>
+<button
+  (click)="setAllDone(true)"
+  [disabled]="disableSetAllDoneStatus$(true) | async"
+>
+  All done
+</button>
+<button
+  (click)="setAllDone(false)"
+  [disabled]="disableSetAllDoneStatus$(false) | async"
+>
+  All todo
+</button>
+<button (click)="clearDone()" [disabled]="disableClearDone$ | async">
+  Clear done
+</button>
