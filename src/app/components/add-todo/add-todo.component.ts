@@ -1,12 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { NewTodo } from 'src/app/model/todo';
-import { TodoService } from 'src/app/services/todo.service';
+import { NewTodo } from '../../model/todo';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-add-todo',
   templateUrl: './add-todo.component.html',
   styleUrls: ['./add-todo.component.css'],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
 })
 export class AddTodoComponent {
   private readonly todoService = inject(TodoService);

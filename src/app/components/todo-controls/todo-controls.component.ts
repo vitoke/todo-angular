@@ -1,11 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { map } from 'rxjs';
-import { TodoService } from 'src/app/services/todo.service';
+
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-todo-controls',
   templateUrl: './todo-controls.component.html',
   styleUrls: ['./todo-controls.component.css'],
+  standalone: true,
+  imports: [CommonModule],
 })
 export class TodoControlsComponent {
   private readonly todoService = inject(TodoService);
